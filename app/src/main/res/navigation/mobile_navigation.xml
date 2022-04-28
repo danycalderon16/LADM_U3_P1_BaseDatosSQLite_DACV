@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_list">
+
+    <fragment
+        android:id="@+id/navigation_list"
+        android:name="mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.ui.list.ListFragment"
+        android:label="Areas"
+        tools:layout="@layout/fragment_list" />
+
+    <fragment
+        android:id="@+id/navigation_subdepartamentos"
+        android:name="mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.ui.subdepartamentos.SubdepartametosFragment"
+        android:label="@string/title_list"
+        tools:layout="@layout/fragment_subdepartamentos" />
+
+    <fragment
+        android:id="@+id/navigation_insert"
+        android:name="mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.ui.insert.InsertFragment"
+        android:label="@string/title_insert"
+        tools:layout="@layout/fragment_insert" />
+
+    <fragment
+        android:id="@+id/navigation_modify"
+        android:name="mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.ui.modify.ModifyFragment"
+        android:label="@string/title_modify"
+        tools:layout="@layout/fragment_modify" />
+</navigation>
