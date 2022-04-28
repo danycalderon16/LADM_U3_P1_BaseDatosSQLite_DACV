@@ -5,7 +5,7 @@
     <item
         android:id="@+id/navigation_list"
         android:icon="@drawable/ic_baseline_format_list_bulleted_24"
-        android:title="@string/title_list" />
+        android:title="@string/title_area" />
 
     <item
         android:id="@+id/navigation_subdepartamentos"

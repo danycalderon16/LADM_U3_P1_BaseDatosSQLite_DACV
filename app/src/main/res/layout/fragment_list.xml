@@ -13,8 +13,10 @@
         android:id="@+id/campo_buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar por"/>
+        android:hint="Buscar por"
+        android:textColor="#222"/>
     <Spinner
+        android:layout_marginTop="5dp"
         android:id="@+id/spinner_areas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -22,11 +24,11 @@
         android:text="buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_buscar"/>
+        android:id="@+id/btn_buscar"
+        android:layout_marginTop="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

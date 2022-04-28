@@ -81,6 +81,35 @@ class Area (context: Context){
         }
         return arreglo
     }
+    fun obtenerAreasWhere(opc:String,valor:String): ArrayList<Area> {
+            val arreglo = ArrayList<Area>()
+            val baseDatos = BaseDatos(context, "MAPEO_EMPRESAS", null, 1)
+
+            err = ""
+            try {
+                val tabla = baseDatos.readableDatabase
+                val SQL_SELECT = "SELECT * FROM AREA WHERE ${opc}=?"
+
+                val cursor = tabla.rawQuery(SQL_SELECT, arrayOf(valor))
+
+                if (cursor.moveToFirst()) {
+                    do {
+                        val area = Area(context)
+                        area.idArea = cursor.getString(0)
+                        area.descripcion = cursor.getString(1)
+                        area.division = cursor.getString(2)
+                        area.cantidadEmpleados = cursor.getInt(3)
+
+                        arreglo.add(area)
+                    } while (cursor.moveToNext())
+                }
+            } catch (err: SQLiteException) {
+                this.err = err.message.toString()
+            } finally {
+                baseDatos.close()
+            }
+            return arreglo
+        }
 
      fun obtenerDepartamentos() : ArrayList<String>{
             val areas = ArrayList<String>()

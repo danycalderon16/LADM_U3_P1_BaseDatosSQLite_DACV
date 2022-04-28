@@ -2,5 +2,6 @@
     <string name="app_name">U3 P1 SQLite DACV</string>
     <string name="title_list">Subdepartamentos</string>
     <string name="title_insert">Añadir</string>
+    <string name="title_area">Área</string>
     <string name="title_modify">Editar</string>
 </resources>
