@@ -54,9 +54,9 @@ class InsertFragment : Fragment() {
         binding.btnInsertarArea.setOnClickListener {
             val area = Area(requireContext())
 
-            val desc = binding.edDescripcion.text.toString()
-            val division = binding.edDivision.text.toString()
-            val cantEmpl = binding.edCantEmpleados.text.toString()
+            val desc = binding.edDescripcion.text.toString().trim()
+            val division = binding.edDivision.text.toString().trim()
+            val cantEmpl = binding.edCantEmpleados.text.toString().trim()
 
             if (desc.isEmpty() || division.isEmpty() || cantEmpl.isEmpty()){
                 Toast.makeText(requireContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show()
@@ -89,8 +89,8 @@ class InsertFragment : Fragment() {
         binding.btnInsertarSubdepto.setOnClickListener {
             val subdepartamento = Subdepartamento(requireContext())
 
-            val edificio = binding.edIdEdificio.text.toString()
-            val piso = binding.edPiso.text.toString()
+            val edificio = binding.edIdEdificio.text.toString().trim()
+            val piso = binding.edPiso.text.toString().trim()
 
             var id = spinner.selectedItem.toString()
             val idArea = Area(requireContext()).obtenerIdArea(id)

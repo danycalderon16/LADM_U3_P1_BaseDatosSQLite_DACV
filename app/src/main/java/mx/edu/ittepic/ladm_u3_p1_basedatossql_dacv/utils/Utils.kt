@@ -11,7 +11,7 @@ class Utils {
         const val AREA  = "AREA"
         const val DESCRIPCION  = "DESCRIPCION"
         const val DIVISION  = "DIVISION"
-        const val CANTIDAD_EMPLEADOS  = "CANTIDAD_EMPLEADO"
+        const val CANTIDAD_EMPLEADOS  = "CANTIDAD_EMPLEADOS"
 
     }
 }

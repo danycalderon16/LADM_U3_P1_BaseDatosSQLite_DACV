@@ -21,6 +21,7 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Area
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.AreaSubp
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Subdepartamento
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.ui.list.ListViewModel
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 import java.util.ArrayList
 
 class SubdepartametosFragment : Fragment() {
@@ -32,7 +33,7 @@ class SubdepartametosFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    var areaSubp = ArrayList<AreaSubp>()
+    var areaSubList = ArrayList<AreaSubp>()
     lateinit var adapter : SubdepAdapter
 
     override fun onCreateView(
@@ -51,18 +52,18 @@ class SubdepartametosFragment : Fragment() {
         array.add("Seleccione una opción")
         array.add("Edificio")
         array.add("Área")
-        array.add("Divisón")
+        array.add("División")
 
         val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, array)
         aa.setNotifyOnChange(true)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        aa.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         // Set Adapter to Spinner
         spinner.adapter = aa
 
         val rv = binding.rvList
 
-        areaSubp = AreaSubp(requireContext()).obtenerSubdepto()
-        adapter = SubdepAdapter(areaSubp, object : SubdepAdapter.onItemClickListenr{
+        areaSubList = AreaSubp(requireContext()).obtenerSubdepto()
+        adapter = SubdepAdapter(areaSubList, object : SubdepAdapter.onItemClickListenr{
             override fun onItemClick(areaSub: AreaSubp, i: Int) {
                 if (i==0)
                     editAreaSub(areaSub)
@@ -72,7 +73,7 @@ class SubdepartametosFragment : Fragment() {
 
         })
 
-        areaSubp.forEach {
+        areaSubList.forEach {
             Log.i("SELECT INNER 76",it.toString())
         }
 
@@ -88,6 +89,29 @@ class SubdepartametosFragment : Fragment() {
 
         rv.layoutManager = LinearLayoutManager(requireContext())
         rv.adapter = adapter
+
+        binding.btnBuscar.setOnClickListener {
+            if (spinner.selectedItemPosition==0){
+                Toast.makeText(requireContext(), "Seleccione una opción", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            var opc = spinner.selectedItem.toString().trim()
+            if (opc=="Edificio") opc = Utils.IDEDIFICIO
+            if (opc=="Área") opc = Utils.DESCRIPCION
+            if (opc=="División") opc = Utils.DIVISION
+            val valor = binding.campoBuscar.text.toString().trim()
+            var areaSubWhere : ArrayList<AreaSubp>
+            if(valor.equals("")){
+                Toast.makeText(requireContext(), "Ingrese un valor", Toast.LENGTH_SHORT).show()
+                areaSubWhere =  AreaSubp(requireContext()).obtenerSubdepto()
+            }else
+                areaSubWhere =  AreaSubp(requireContext()).obtenerSubdepto(opc,valor)
+            areaSubList.clear()
+            areaSubWhere.forEach {
+                areaSubList.add(it)
+            }
+            adapter.notifyDataSetChanged()
+        }
 
         return root
     }
@@ -118,16 +142,22 @@ class SubdepartametosFragment : Fragment() {
         var areas = arrayListOf<String>()
         var index = 0
         areas.add("Seleccione un Área")
-        Area(requireContext()).obtenerDepartamentos().forEach {
-            if(it.equals(areaSub.descripcion))
-                index = it.count()
-            areas.add(it)
+        var deps = Area(requireContext()).obtenerDepartamentos()
+
+        (0..deps.size-1).forEach {
+            if(deps[it].equals(areaSub.descripcion))
+                index = it+1
+            areas.add(deps[it])
         }
         val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, areas)
         aa.setNotifyOnChange(true)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        aa.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         // Set Adapter to Spinner
         spinnerEd.adapter = aa
+
+        Log.i("index",""+index)
+
+        spinnerEd.setSelection(index)
 
         ed_edif.setText(subdep.idEdificio)
         ed_piso.setText(""+subdep.piso)
@@ -144,10 +174,10 @@ class SubdepartametosFragment : Fragment() {
                         Toast.makeText(requireContext(), "Se actualizó con éxito", Toast.LENGTH_SHORT)
                             .show()
                         var areasUpdate = AreaSubp(requireContext()).obtenerSubdepto()
-                        areaSubp.clear()
+                        areaSubList.clear()
                         areasUpdate.forEach {
                             Log.i("Select 140",it.toString())
-                            areaSubp.add(it)
+                            areaSubList.add(it)
                         }
                         Log.i("Select subdep up 148",subdep.toString())
                         adapter.notifyDataSetChanged()

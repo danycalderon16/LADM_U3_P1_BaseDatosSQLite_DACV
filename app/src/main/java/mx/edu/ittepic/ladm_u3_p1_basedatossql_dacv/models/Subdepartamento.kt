@@ -64,8 +64,8 @@ class Subdepartamento(context: Context) {
                     val subDep = Subdepartamento(context)
                     subDep.idSubdepto = cursor.getString(0)
                     subDep.idEdificio = cursor.getString(1)
-                    subDep.idArea = cursor.getInt(2)
-                    subDep.piso = cursor.getInt(3)
+                    subDep.piso = cursor.getInt(2)
+                    subDep.idArea = cursor.getInt(3)
 
                     arreglo.add(subDep)
                 } while (cursor.moveToNext())
