@@ -47,8 +47,7 @@ class InsertFragment : Fragment() {
         }
         val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, array)
         aa.setNotifyOnChange(true)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Set Adapter to Spinner
+        aa.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         spinner.adapter = aa
 
         binding.btnInsertarArea.setOnClickListener {
@@ -71,7 +70,6 @@ class InsertFragment : Fragment() {
 
             if (resultado) {
                 Toast.makeText(requireContext(), "SE INSERTO AREA CON EXITO", Toast.LENGTH_SHORT).show()
-                //mostrarDatos()
                 binding.edDescripcion.setText("")
                 binding.edDivision.setText("")
                 binding.edCantEmpleados.setText("")
@@ -104,13 +102,10 @@ class InsertFragment : Fragment() {
             subdepartamento.piso = piso.toInt()
             subdepartamento.idArea = idArea
 
-            Log.i("Posicion", edificio+", " + piso+", "+idArea)
-
             val resultado = subdepartamento.insertar()
 
             if (resultado) {
                 Toast.makeText(requireContext(), "SE INSERTO SUBDEPARTAMENTO CON EXITO", Toast.LENGTH_SHORT).show()
-                //mostrarDatos()
                 binding.edIdEdificio.setText("")
                 binding.edPiso.setText("")
                 spinner.setSelection(0)
@@ -121,7 +116,6 @@ class InsertFragment : Fragment() {
                     .show()
             }
         }
-
         return root
     }
 

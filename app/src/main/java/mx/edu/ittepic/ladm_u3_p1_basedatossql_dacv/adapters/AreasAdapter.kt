@@ -40,7 +40,6 @@ class AreasAdapter (private val list:ArrayList<Area>,  itemListener: onItemClick
         var div : TextView = item.findViewById(R.id.tv_division_area)
         var ivEdit : ImageView = item.findViewById(R.id.iv_edit_area)
         var ivDelete : ImageView = item.findViewById(R.id.iv_delete_area)
-
     }
 
     interface onItemClickListenr{

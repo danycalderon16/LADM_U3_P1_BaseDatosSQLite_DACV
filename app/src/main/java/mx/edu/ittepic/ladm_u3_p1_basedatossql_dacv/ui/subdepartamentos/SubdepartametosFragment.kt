@@ -73,20 +73,6 @@ class SubdepartametosFragment : Fragment() {
 
         })
 
-        areaSubList.forEach {
-            Log.i("SELECT INNER 76",it.toString())
-        }
-
-        val area =  Area(requireContext()).obtenerAreas()
-        val dep =  Subdepartamento(requireContext()).obtenerSubdepto()
-        dep.forEach {
-            Log.i("SELECT * FROM subde 82",it.toString())
-        }
-        area.forEach {
-            Log.i("SELECT * FROM area 85",it.toString())
-        }
-
-
         rv.layoutManager = LinearLayoutManager(requireContext())
         rv.adapter = adapter
 
@@ -118,7 +104,6 @@ class SubdepartametosFragment : Fragment() {
 
     private fun deleteAreaSub(areaSub: AreaSubp) {
         val subdep = Subdepartamento(requireContext()).obtenerSubdepto(areaSub.idSubdepto)
-        Log.i("Select delete",""+subdep.toString())
         AlertDialog.Builder(requireContext())
             .setTitle("Eliminar Subdepartamento")
             .setMessage("¿Está seguro de elimnar el área ${areaSub.descripcion} " +
@@ -155,8 +140,6 @@ class SubdepartametosFragment : Fragment() {
         // Set Adapter to Spinner
         spinnerEd.adapter = aa
 
-        Log.i("index",""+index)
-
         spinnerEd.setSelection(index)
 
         ed_edif.setText(subdep.idEdificio)
@@ -182,7 +165,6 @@ class SubdepartametosFragment : Fragment() {
                         Log.i("Select subdep up 148",subdep.toString())
                         adapter.notifyDataSetChanged()
                         dialog.dismiss()
-
                     }
                     else{
                         AlertDialog.Builder(requireContext())
@@ -197,12 +179,6 @@ class SubdepartametosFragment : Fragment() {
                 })
         builder.create()
         builder.show()
-    }
-
-    fun obtenerAreaSubd():ArrayList<AreaSubp>{
-        var areaSubp = ArrayList<AreaSubp>()
-
-        return areaSubp
     }
 
     override fun onDestroyView() {

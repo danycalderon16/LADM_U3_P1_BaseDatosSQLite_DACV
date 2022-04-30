@@ -17,9 +17,9 @@ class Subdepartamento(context: Context) {
     private var context = context
     private var err = ""
 
-
     override fun toString(): String {
-        return "IDsubd: "+ idSubdepto + ", " +"IDEdif: "+ idEdificio + ", " +"Piso: "+ piso + ", " + "IDarea: "+idArea
+        return "IDsubd: "+ idSubdepto + ", " +"IDEdif: "+ idEdificio +
+                ", " +"Piso: "+ piso + ", " + "IDarea: "+idArea
     }
 
     fun insertar(): Boolean {
@@ -39,7 +39,6 @@ class Subdepartamento(context: Context) {
 
                 return false
         } catch (err: SQLiteException) {
-
             this.err = err.message.toString()
             return false
         } finally {
@@ -149,9 +148,8 @@ class Subdepartamento(context: Context) {
                 "${Utils.IDSUBDEPTO}=?", arrayOf(idSubdepto)
             )
 
-            if (respuesta == 0) {
+            if (respuesta == 0)
                 return false
-            }
 
         } catch (err: SQLiteException) {
             this.err = err.message.toString()

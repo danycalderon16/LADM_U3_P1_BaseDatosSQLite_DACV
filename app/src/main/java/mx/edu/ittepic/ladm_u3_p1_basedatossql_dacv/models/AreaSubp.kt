@@ -20,7 +20,8 @@ class AreaSubp (context: Context){
     private var err = ""
 
     override fun toString(): String {
-        return "idArea " + idArea +" ,"+"descripcion " + descripcion +" ,"+"division " + division  +" ,"+"idSubdepto " + idSubdepto +" ,"+"idEdificio " + idEdificio +" ,"+"piso " + piso
+        return "idArea " + idArea +" ,"+"descripcion " + descripcion +" ,"+"division " +
+                division  +" ,"+"idSubdepto " + idSubdepto +" ,"+"idEdificio " + idEdificio +" ,"+"piso " + piso
     }
 
     fun obtenerSubdepto() : ArrayList<AreaSubp>{
@@ -34,7 +35,8 @@ class AreaSubp (context: Context){
                     "INNER JOIN ${Utils.AREA} A "+
                     "ON S.${Utils.IDAREA} = A.${Utils.IDAREA}"
 
-            val cursor = tabla.query(SQL_SELECT,null,null,null,null,null,null)
+            val cursor = tabla.query(SQL_SELECT,null,null,
+                null,null,null,null)
 
             if(cursor.moveToFirst()){
                 do {
@@ -70,7 +72,7 @@ class AreaSubp (context: Context){
                     "ON S.${Utils.IDAREA} = A.${Utils.IDAREA} " +
                     "WHERE ${opc}=?"
 
-            Log.i("iNNER JOIN",SQL_SELECT+" "+valor)
+            Log.i("INNER JOIN",SQL_SELECT+" "+valor)
             val cursor = tabla.rawQuery(SQL_SELECT, arrayOf(valor))
 
             if(cursor.moveToFirst()){
@@ -94,5 +96,4 @@ class AreaSubp (context: Context){
         }
         return arreglo
     }
-
 }

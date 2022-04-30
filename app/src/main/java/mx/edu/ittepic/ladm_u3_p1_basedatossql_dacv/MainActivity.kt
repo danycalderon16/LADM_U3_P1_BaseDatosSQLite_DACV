@@ -47,8 +47,7 @@ class MainActivity : AppCompatActivity() {
             var tabla = baseDatos.writableDatabase
             var datosActualizados = ContentValues()
 
-           var resul = tabla.execSQL("UPDATE ${Utils.SUBDEPARTAMENTO} SET ${Utils.IDAREA} = 1" +
-                   " WHERE ${Utils.IDSUBDEPTO} = 1" )
+           var resul = tabla.execSQL("")
 
            resul
         } catch (er: SQLiteException) {

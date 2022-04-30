@@ -137,31 +137,6 @@ class Area(context: Context) {
         return areas
     }
 
-    fun obtenerArea(idArea: Int): Area {
-        val area = Area(context)
-        val baseDatos = BaseDatos(context, Utils.BD_NAME, null, 1)
-
-        err = ""
-        try {
-            val tabla = baseDatos.readableDatabase
-            val SQL_SELECT = "SELECT * FROM ${Utils.AREA} WHERE ${Utils.IDAREA}=? "
-
-            val cursor = tabla.rawQuery(SQL_SELECT, arrayOf(idArea.toString()))
-
-            if (cursor.moveToFirst()) {
-                area.idArea = cursor.getString(0)
-                area.descripcion = cursor.getString(1)
-                area.division = cursor.getString(2)
-                area.cantidadEmpleados = cursor.getInt(3)
-            }
-        } catch (err: SQLiteException) {
-            this.err = err.message.toString()
-        } finally {
-            baseDatos.close()
-        }
-        return area
-    }
-
     fun obtenerIdArea(descripcionRec: String): Int {
         var idArea = -1
         val baseDatos = BaseDatos(context, Utils.BD_NAME, null, 1)
