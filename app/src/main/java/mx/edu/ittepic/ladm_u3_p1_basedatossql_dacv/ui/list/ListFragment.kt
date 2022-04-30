@@ -4,6 +4,7 @@ import android.R
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.adapters.AreasAdapter
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.adapters.SubdepAdapter
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.databinding.FragmentListBinding
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Area
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Subdepartamento
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 import java.util.ArrayList
 
@@ -93,10 +96,19 @@ class ListFragment : Fragment() {
     }
 
     private fun deleteArea(area: Area) {
+        val i = Subdepartamento(requireContext()).obtenerSubdepWhere(Utils.IDAREA,area.idArea).size
+        if (i>0) {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Error")
+                .setMessage("No se pueden eliminar áreas si hay subdepartamentos asociados a ella.")
+                .setPositiveButton("Cerrar",{d,i->})
+                .show()
+            return
+        }
         AlertDialog.Builder(requireContext())
             .setTitle("Eliminar Área")
             .setMessage("¿Está seguro de elimnar el área ${area.descripcion}?")
-            .setPositiveButton("Sí",{d,i->area.eliminar()})
+            //.setPositiveButton("Sí",{d,i->area.eliminar()})
             .setNegativeButton("No",{d,i->d.dismiss()})
             .show()
         adapter.notifyDataSetChanged()

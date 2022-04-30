@@ -41,7 +41,7 @@ class InsertFragment : Fragment() {
 
         val spinner: Spinner = binding.spinner
 
-        array.add("Seleccione un area")
+        array.add("Seleccione un área")
         Area(requireContext()).obtenerDepartamentos().forEach {
             array.add(it)
         }
