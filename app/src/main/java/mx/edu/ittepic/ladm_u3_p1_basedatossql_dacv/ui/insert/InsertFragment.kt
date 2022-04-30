@@ -74,6 +74,13 @@ class InsertFragment : Fragment() {
                 binding.edDivision.setText("")
                 binding.edCantEmpleados.setText("")
                 array = area.obtenerDepartamentos()
+                array.forEach {
+                    Log.i("78",it.toString())
+                }
+                aa.clear()
+                array.add("Seleccione un área")
+                aa.addAll(array)
+                aa.notifyDataSetChanged()
                 aa.setNotifyOnChange(true)
 
             }else{

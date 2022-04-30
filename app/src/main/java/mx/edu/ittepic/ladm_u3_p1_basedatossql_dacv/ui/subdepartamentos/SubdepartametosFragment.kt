@@ -108,7 +108,16 @@ class SubdepartametosFragment : Fragment() {
             .setTitle("Eliminar Subdepartamento")
             .setMessage("¿Está seguro de elimnar el área ${areaSub.descripcion} " +
                     "en el edificio ${subdep.idEdificio} en el piso ${subdep.piso}?")
-            .setPositiveButton("Sí",{d,i->subdep.eliminar()})
+            .setPositiveButton("Sí") { d, i ->
+                subdep.eliminar()
+                var areasUpdate = AreaSubp(requireContext()).obtenerSubdepto()
+                areaSubList.clear()
+                areasUpdate.forEach {
+                    areaSubList.add(it)
+                }
+                adapter.notifyDataSetChanged()
+                d.dismiss()
+            }
             .setNegativeButton("No",{d,i->d.dismiss()})
             .show()
         adapter.notifyDataSetChanged()

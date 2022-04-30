@@ -108,10 +108,18 @@ class ListFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle("Eliminar Área")
             .setMessage("¿Está seguro de elimnar el área ${area.descripcion}?")
-            .setPositiveButton("Sí",{d,i->area.eliminar()})
+            .setPositiveButton("Sí") { d, i ->
+                area.eliminar()
+                val areasWhere = Area(requireContext()).obtenerAreas()
+                areas.clear()
+                areasWhere.forEach {
+                    areas.add(it)
+                }
+                adapter.notifyDataSetChanged()
+            }
             .setNegativeButton("No",{d,i->d.dismiss()})
             .show()
-        adapter.notifyDataSetChanged()
+
     }
 
     private fun editArea(area: Area) {
