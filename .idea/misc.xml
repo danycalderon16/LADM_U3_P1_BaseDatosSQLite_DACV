@@ -8,9 +8,11 @@
         <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/card_areas.xml" value="0.25" />
         <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/card_list.xml" value="0.33" />
         <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/dialog_edit_area.xml" value="0.22" />
+        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/dialog_edit_subdep.xml" value="0.1" />
         <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_insert.xml" value="0.1" />
-        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_list.xml" value="0.18" />
-        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_subdepartamentos.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_modify.xml" value="0.16485507246376813" />
+        <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/layout/fragment_subdepartamentos.xml" value="0.1" />
         <entry key="..\:/Users/Calderon/AndroidStudioProjects/LADM_U3_P1_BaseDatosSQL_DACV/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>

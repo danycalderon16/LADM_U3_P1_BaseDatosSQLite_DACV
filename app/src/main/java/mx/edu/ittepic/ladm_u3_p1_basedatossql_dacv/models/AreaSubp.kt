@@ -3,6 +3,7 @@ package mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models
 import android.content.Context
 import android.database.sqlite.SQLiteException
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.basedatos.BaseDatos
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 
 class AreaSubp (context: Context){
 
@@ -23,14 +24,14 @@ class AreaSubp (context: Context){
 
     fun obtenerSubdepto() : ArrayList<AreaSubp>{
         val arreglo = ArrayList<AreaSubp>()
-        val baseDatos = BaseDatos(context, "MAPEO_EMPRESAS",null,1)
+        val baseDatos = BaseDatos(context, Utils.BD_NAME, null, 1)
 
         err = ""
         try{
             val tabla = baseDatos.readableDatabase
-            val SQL_SELECT = "SUBDEPARTAMENTO S "+
-                    "INNER JOIN AREA A "+
-                    "ON S.IDAREA = A.IDAREA"
+            val SQL_SELECT = "${Utils.SUBDEPARTAMENTO} S "+
+                    "INNER JOIN ${Utils.AREA} A "+
+                    "ON S.${Utils.IDAREA} = A.${Utils.IDAREA}"
 
             val cursor = tabla.query(SQL_SELECT,null,null,null,null,null,null)
 

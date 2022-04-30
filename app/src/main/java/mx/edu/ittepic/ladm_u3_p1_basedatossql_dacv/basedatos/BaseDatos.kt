@@ -3,6 +3,7 @@ package mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.basedatos
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 
 class BaseDatos(context: Context?,
                 name: String?,
@@ -10,17 +11,17 @@ class BaseDatos(context: Context?,
                 version: Int
 ) : SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE AREA(" +
-                "IDAREA INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "DESCRIPCION VARCHAR(200), " +
-                "DIVISION VARCHAR(50)," +
-                "CANTIDAD_EMPLEADOS INTEGER)")
-        db.execSQL("CREATE TABLE SUBDEPARTAMENTO(" +
-                "IDSUBDEPTO INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "IDEDIFICIO VARCHAR(20), " +
-                "PISO VARCHAR(50)," +
-                "IDAREA INTEGER," +
-                "FOREIGN KEY (IDAREA) REFERENCES AREA (IDAREA))")
+        db.execSQL("CREATE TABLE ${Utils.AREA}(" +
+                "${Utils.IDAREA} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${Utils.DESCRIPCION} VARCHAR(200), " +
+                "${Utils.DIVISION} VARCHAR(50)," +
+                "${Utils.CANTIDAD_EMPLEADOS} INTEGER)")
+        db.execSQL("CREATE TABLE ${Utils.SUBDEPARTAMENTO}(" +
+                "${Utils.IDSUBDEPTO} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${Utils.IDEDIFICIO} VARCHAR(20), " +
+                "${Utils.PISO} VARCHAR(50)," +
+                "${Utils.IDAREA} INTEGER," +
+                "FOREIGN KEY (${Utils.IDAREA}) REFERENCES ${Utils.AREA} (${Utils.IDAREA}))")
 
     }
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.adapters.AreasAdapter
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.databinding.FragmentListBinding
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Area
+import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 import java.util.ArrayList
 
 class ListFragment : Fragment() {
@@ -46,7 +47,6 @@ class ListFragment : Fragment() {
         array.add("Seleccione una opción")
         array.add("Descripción")
         array.add("División")
-        array.add("Edificio")
 
         val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, array)
         aa.setNotifyOnChange(true)
@@ -74,8 +74,8 @@ class ListFragment : Fragment() {
                 return@setOnClickListener
             }
             var opc = spinner.selectedItem.toString().trim()
-            if (opc=="División") opc = "DIVISION"
-            if (opc=="Descripción") opc = "DESCRIPCION"
+            if (opc=="División") opc = Utils.DIVISION
+            if (opc=="Descripción") opc = Utils.DESCRIPCION
             val valor = binding.campoBuscar.text.toString()
             var areasWhere : ArrayList<Area>
             if(valor.equals("")){
@@ -99,6 +99,7 @@ class ListFragment : Fragment() {
             .setPositiveButton("Sí",{d,i->area.eliminar()})
             .setNegativeButton("No",{d,i->d.dismiss()})
             .show()
+        adapter.notifyDataSetChanged()
     }
 
     private fun editArea(area: Area) {

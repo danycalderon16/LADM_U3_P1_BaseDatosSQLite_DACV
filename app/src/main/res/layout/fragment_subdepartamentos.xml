@@ -16,12 +16,14 @@
     <Spinner
         android:id="@+id/spinner_subdep"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"/>
     <Button
         android:text="buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_buscar"/>
+        android:id="@+id/btn_buscar"
+        android:layout_marginTop="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"

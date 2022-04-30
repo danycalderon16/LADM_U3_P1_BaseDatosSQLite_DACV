@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_baseline_add_24"
         android:title="@string/title_insert" />
 
-    <item
+  <!--  <item
         android:id="@+id/navigation_modify"
         android:icon="@drawable/ic_baseline_edit_24"
-        android:title="@string/title_modify" />
+        android:title="@string/title_modify" />-->
 
 </menu>

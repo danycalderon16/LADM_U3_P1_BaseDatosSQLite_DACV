@@ -13,8 +13,7 @@
         android:id="@+id/campo_buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar por"
-        android:textColor="#222"/>
+        android:hint="Buscar por"/>
     <Spinner
         android:layout_marginTop="5dp"
         android:id="@+id/spinner_areas"
@@ -30,5 +29,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
