@@ -20,10 +20,10 @@ Ver áreas por busqueda
 ![avatar](img3.jpeg)
 
 Ver subdepartamentos
-![avatar](img1.jpeg)
+![avatar](img4.jpeg)
 
 Ver subdepartamentos por busqueda
-![avatar](img2.jpeg)
+![avatar](img5.jpeg)
 
 Actualizar
-![avatar](img3.jpeg)
+![avatar](img6.jpeg)
