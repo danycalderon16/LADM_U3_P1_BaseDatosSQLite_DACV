@@ -14,6 +14,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
  *
  * */
 class Area(context: Context) {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     var idArea = ""
     var descripcion = ""
     var division = ""

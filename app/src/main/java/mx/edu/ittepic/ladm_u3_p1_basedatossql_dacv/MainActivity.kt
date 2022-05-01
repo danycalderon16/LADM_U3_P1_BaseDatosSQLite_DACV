@@ -14,6 +14,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.databinding.ActivityMainBindi
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 
 class MainActivity : AppCompatActivity() {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
-
-
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

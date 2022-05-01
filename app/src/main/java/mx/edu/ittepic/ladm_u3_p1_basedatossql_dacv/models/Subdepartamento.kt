@@ -9,6 +9,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils.*
 
 class Subdepartamento(context: Context) {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     var idSubdepto = ""
     var idEdificio = ""
     var piso = 0

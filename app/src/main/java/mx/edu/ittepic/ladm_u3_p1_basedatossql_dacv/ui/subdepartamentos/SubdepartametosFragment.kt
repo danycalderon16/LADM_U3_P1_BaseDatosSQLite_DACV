@@ -25,6 +25,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 import java.util.ArrayList
 
 class SubdepartametosFragment : Fragment() {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     private var array = arrayListOf<String>()
 
     private var _binding: FragmentSubdepartamentosBinding? = null

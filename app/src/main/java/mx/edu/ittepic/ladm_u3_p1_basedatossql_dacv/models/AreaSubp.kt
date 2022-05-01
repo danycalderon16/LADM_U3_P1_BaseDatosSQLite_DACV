@@ -7,6 +7,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.basedatos.BaseDatos
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils.Utils
 
 class AreaSubp (context: Context){
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
 
     var idArea = ""
     var descripcion = ""

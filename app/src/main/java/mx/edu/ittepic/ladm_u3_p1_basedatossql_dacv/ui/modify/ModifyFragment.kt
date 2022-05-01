@@ -10,6 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.databinding.FragmentModifyBinding
 
 class ModifyFragment : Fragment() {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
 
     private var _binding: FragmentModifyBinding? = null
 

@@ -1,6 +1,9 @@
 package mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.utils
 
 class Utils {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     companion object {
         const val SUBDEPARTAMENTO  = "SUBDEPARTAMENTO"
         const val BD_NAME  = "MAPEO_EMPRESAS"

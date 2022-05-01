@@ -19,6 +19,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Area
 import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.Subdepartamento
 
 class InsertFragment : Fragment() {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
 
     private var _binding: FragmentInsertBinding? = null
 

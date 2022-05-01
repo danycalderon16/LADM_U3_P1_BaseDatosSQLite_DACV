@@ -12,6 +12,9 @@ import mx.edu.ittepic.ladm_u3_p1_basedatossql_dacv.models.AreaSubp
 
 class AreasAdapter (private val list:ArrayList<Area>,  itemListener: onItemClickListenr): RecyclerView.Adapter<AreasAdapter.ViewHolder>() {
 
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     var mListener : onItemClickListenr = itemListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

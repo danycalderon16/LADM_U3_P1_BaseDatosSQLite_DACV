@@ -10,6 +10,9 @@ class BaseDatos(context: Context?,
                 factory: SQLiteDatabase.CursorFactory?,
                 version: Int
 ) : SQLiteOpenHelper(context, name, factory, version) {
+    /************************************
+     * DANIEL ALEJANDRO CALDERÓN VIGREN *
+     ************************************/
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE ${Utils.AREA}(" +
                 "${Utils.IDAREA} INTEGER PRIMARY KEY AUTOINCREMENT," +
